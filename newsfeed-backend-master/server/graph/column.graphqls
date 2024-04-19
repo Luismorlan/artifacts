@@ -1,0 +1,37 @@
+type Column implements ColumnSeedStateInterface
+  @goModel(model: "model.Column") {
+  id: String!
+  createdAt: Time!
+  updatedAt: Time!
+  creator: User
+  name: String!
+  subscribers: [User!]!
+  feeds: [Feed!]!
+  visibility: Visibility!
+  # How many users are subscribing to this Column, used in sharedColumn.
+  subscriberCount: Int
+  mobileNotification: Boolean!
+  readed: [String!]
+  webNotification: Boolean!
+  showUnreadIndicatorOnIcon: Boolean!
+}
+
+type ColumnSeedState implements ColumnSeedStateInterface {
+  id: String!
+  name: String!
+}
+
+input ColumnSeedStateInput {
+  id: String!
+  name: String!
+}
+
+interface ColumnSeedStateInterface {
+  id: String!
+  name: String!
+}
+
+type PostInColumnOutput {
+  post: Post!
+  cursor: Int!
+}

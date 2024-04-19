@@ -1,0 +1,32 @@
+type Feed implements FeedSeedStateInterface @goModel(model: "model.Feed") {
+  id: String!
+  createdAt: Time!
+  updatedAt: Time!
+  creator: User
+  name: String!
+  posts: [Post!]!
+  subSources: [SubSource!]!
+  columns: [Column!]
+  filterDataExpression: String!
+  visibility: Visibility
+}
+
+type FeedSeedState implements FeedSeedStateInterface {
+  id: String!
+  name: String!
+}
+
+input FeedSeedStateInput {
+  id: String!
+  name: String!
+}
+
+interface FeedSeedStateInterface {
+  id: String!
+  name: String!
+}
+
+type PostInFeedOutput {
+  post: Post!
+  cursor: Int!
+}

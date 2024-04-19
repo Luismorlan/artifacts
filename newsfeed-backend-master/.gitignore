@@ -1,0 +1,8 @@
+server/graphql/schema.go
+tmp/
+*.local
+*.sql
+.DS_Store
+deduplicator/__pycache__/
+main
+*.zip

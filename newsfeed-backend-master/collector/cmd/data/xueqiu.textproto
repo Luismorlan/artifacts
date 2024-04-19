@@ -1,0 +1,25 @@
+# This file should contain all xueqiu job variations, each of different 
+# job_id, please do not add non-xueqiu jobs in this file. For all other data
+# collectors, you should create a new file in this directory with the data
+# collector'xs name. They will be picked up automatically by collector/cmd/main.go
+jobs: {
+	job_id: "xueqiu_job"
+	tasks: [
+		{
+			task_id: "xueqiu_task"
+			data_collector_id: COLLECTOR_XUEQIU
+			task_params: {
+				source_id: "dc2a61b1-721e-4529-8afc-6da686f23b38"
+                sub_sources: [{
+					name: "metalslime",
+					type: USERS, 
+					external_id: "2292705444"
+				}]
+			}
+			task_metadata: {
+				config_name: "xueqiu_config"
+			}
+		}
+	]
+	debug: true
+}

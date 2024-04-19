@@ -1,0 +1,31 @@
+# This file should contain all weixin job variations, each of different 
+# job_id, please do not add non-weixin jobs in this file. For all other data
+# collectors, you should create a new file in this directory with the data
+# collector'xs name. They will be picked up automatically by collector/cmd/main.go
+jobs: {
+	job_id: "weixin_job"
+	tasks: [
+		{
+			task_id: "weixin_task"
+			data_collector_id: COLLECTOR_WEIXIN_ARTICLE
+			task_params: {
+				source_id: "0f90f563-7c95-4be0-a592-7e5666f02c33"
+                sub_sources: [
+                    {name: "all", type: USERS}
+                ]
+                header_params: [
+                    {key: "Accept", value: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"},
+                    {key: "Accept-Language", value: "en-US,en;q=0.9"},
+                    {key: "Accept-Encoding", value: "gzip, deflate, br"},
+                    {key: "Host", value: "cdn.werss.weapp.design"},
+                    {key: "Connection", value: "keep-alive"},
+                    {key: "User-Agent", value: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Safari/605.1.15"}
+                ]
+			}
+			task_metadata: {
+				config_name: "weixin_config"
+			}
+		}
+	]
+	debug: true
+}

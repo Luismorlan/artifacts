@@ -1,0 +1,35 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug panoptic",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "cwd": "${workspaceFolder}",
+            "program": "cmd/panoptic/main.go",
+            "env": {"NEWSMUX_ENV": "prod", "NO_AUTH": "true"},
+            "args": ["-service", "panoptic"]
+        },
+        {
+            "name": "Debug collector",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "cwd": "${workspaceFolder}",
+            "program": "collector/cmd/main.go",
+            "env": {"NEWSMUX_ENV": "prod", "NO_AUTH": "true"},
+            "args": ["-job_id", "wublock123_job"]
+        },
+        {
+            "name": "Debug Api Server",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "cwd": "${workspaceFolder}",
+            "program": "./cmd/server/main.go",
+            "env": {"NEWSMUX_ENV": "dev", "NO_AUTH": "true"},
+            "args": ["-service", "api_server"]
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+type SeedState @goModel(model: "model.SeedState") {
+  userSeedState: UserSeedState!
+  columnSeedState: [ColumnSeedState!]!
+}
+
+input SeedStateInput {
+  userSeedState: UserSeedStateInput!
+  columnSeedState: [ColumnSeedStateInput!]!
+}

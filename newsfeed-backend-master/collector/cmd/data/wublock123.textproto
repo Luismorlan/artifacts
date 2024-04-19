@@ -1,0 +1,54 @@
+# This file should contain all Wublock123 job variations, each of different 
+# job_id, please do not add non-Wublock123 jobs in this file. For all other data
+# collectors, you should create a new file in this directory with the data
+# collector's name. They will be picked up automatically by collector/cmd/main.go
+jobs: {
+    job_id: "wublock123_job"
+    tasks: [
+        {
+            task_id: "wublock123_task"
+            data_collector_id: COLLECTOR_WUBLOCK123
+            task_params: {
+                source_id: "cc33ba42-5e80-419b-9124-ed973b9f8ba4"
+                header_params: [
+                    {key: "Accept", value: "application/json, text/javascript, */*; q=0.01"},
+                    {key: "Connection", value: "keep-alive"},
+                    {key: "User-Agent", value: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6 Safari/605.1.15"},
+                    {key: "Content-Type", value: "application/x-www-form-urlencoded; charset=UTF-8"}
+                ]
+                wublock123_task_params: {
+                    channels: [
+                        "exchange",
+                        "defi",
+                        "mining",
+                        "supervise",
+                        "gamefi",
+                        "jigou",
+                        "pay",
+                        "dao",
+                        "gl",
+                        "l2",
+                        "aq",
+                        "kepu",
+                        "hits",
+                        "depthhits"
+                    ]
+                    search_keywords: [
+                        "NFT",
+                        "BTC",
+                        "ETH",
+                        "香港",
+                        "新加坡",
+                        "币安",
+                        "比特大陆"
+                    ]
+                    pages: 5
+                }
+            }
+            task_metadata: {
+                config_name: "wublock123_config"
+            }
+        }
+    ]
+    debug: false
+}

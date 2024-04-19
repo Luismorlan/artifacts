@@ -1,0 +1,29 @@
+name: Newsfeed Countinuos Integration for iOS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test_cocoapod_install:
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: c-hive/gha-yarn-cache@v2
+      - name: Install Yarn Dependencies
+        run: yarn
+
+      - name: setup-cocoapods
+        uses: maxim-lobanov/setup-cocoapods@v1
+        with:
+          podfile-path: packages/mobile/ios/Podfile.lock
+
+      - name: Pod install Dependencies
+        run: |
+          cd packages/mobile/ios
+          pod install
+
+      - name: Run IOS. OPEN WITH CARE!! This might freeze your browzer
+        run: |
+          cd packages/mobile
+          yarn ios

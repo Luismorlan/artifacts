@@ -1,0 +1,27 @@
+type User implements UserSeedStateInterface @goModel(model: "model.User") {
+  id: String!
+  createdAt: Time!
+  deletedAt: Time
+  name: String!
+  avatarUrl: String!
+  subscribedColumns: [Column!]!
+  postsRead: [Post!]
+}
+
+type UserSeedState implements UserSeedStateInterface {
+  id: String!
+  name: String!
+  avatarUrl: String!
+}
+
+input UserSeedStateInput {
+  id: String!
+  name: String!
+  avatarUrl: String!
+}
+
+interface UserSeedStateInterface {
+  id: String!
+  name: String!
+  avatarUrl: String!
+}

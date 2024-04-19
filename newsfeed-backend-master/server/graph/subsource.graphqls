@@ -1,0 +1,12 @@
+type SubSource @goModel(model: "model.SubSource") {
+  id: String!
+  createdAt: Time!
+  deletedAt: Time
+  name: String!
+  externalIdentifier: String!
+  source: Source!
+  avatarUrl: String!
+  originUrl: String!
+  isFromSharedPost: Boolean!
+  customizedCrawlerParams: String
+}
